@@ -16,7 +16,7 @@ pub fn run(args: Args) -> Result<(), Box<dyn Error>> {
     let mut duplicates_found = false;
 
     for group in grouped_by_name.values() {
-        if group.len() > 2 {
+        if group.len() < 2 {
             continue;
         }
 
@@ -28,7 +28,7 @@ pub fn run(args: Args) -> Result<(), Box<dyn Error>> {
             }
 
             duplicates_found = true;
-            println!("Duplicate group: ");
+            println!("Duplicate group:");
             println!("Hash: {}", hash);
 
             for path in paths {
